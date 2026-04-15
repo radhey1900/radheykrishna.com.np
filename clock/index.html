@@ -94,13 +94,13 @@ function updateClock() {
         document.getElementById(id).innerText = time;
         document.getElementById(dateId).innerText = date;
     }
-
-    setTime('nepal', 'nepal-date', 'Asia/Kathmandu');
-    setTime('india', 'india-date', 'Asia/Kolkata');
+    
     setTime('fiji', 'fiji-date', 'Pacific/Fiji');
     setTime('png', 'png-date', 'Pacific/Port_Moresby');
-    setTime('santa', 'santa-date', 'America/Los_Angeles');
+    setTime('nepal', 'nepal-date', 'Asia/Kathmandu');
     setTime('sydney', 'sydney-date', 'Australia/Sydney');
+    setTime('india', 'india-date', 'Asia/Kolkata');    
+    setTime('santa', 'santa-date', 'America/Los_Angeles');
 }
 
 setInterval(updateClock, 1000);
