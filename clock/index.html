@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Clock Video Wall</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #000;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        width: 90%;
+    }
+    .clock {
+        text-align: center;
+        padding: 20px;
+        border-radius: 15px;
+        background: #111;
+        box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+    .city {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    .time {
+        font-size: 48px;
+        font-weight: bold;
+    }
+    .date {
+        font-size: 18px;
+        margin-top: 5px;
+    }
+</style>
+</head>
+<body>
+
+<div class="grid">
+    <div class="clock">
+        <div class="city">Nepal</div>
+        <div class="time" id="nepal"></div>
+        <div class="date" id="nepal-date"></div>
+    </div>
+
+    <div class="clock">
+        <div class="city">India (Bangalore)</div>
+        <div class="time" id="india"></div>
+        <div class="date" id="india-date"></div>
+    </div>
+
+    <div class="clock">
+        <div class="city">Fiji</div>
+        <div class="time" id="fiji"></div>
+        <div class="date" id="fiji-date"></div>
+    </div>
+
+    <div class="clock">
+        <div class="city">Papua New Guinea</div>
+        <div class="time" id="png"></div>
+        <div class="date" id="png-date"></div>
+    </div>
+
+    <div class="clock">
+        <div class="city">Santa Clara</div>
+        <div class="time" id="santa"></div>
+        <div class="date" id="santa-date"></div>
+    </div>
+
+    <div class="clock">
+        <div class="city">Sydney</div>
+        <div class="time" id="sydney"></div>
+        <div class="date" id="sydney-date"></div>
+    </div>
+</div>
+
+<script>
+function updateClock() {
+    const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+    const optionsDate = { year: 'numeric', month: 'short', day: 'numeric' };
+
+    function setTime(id, dateId, timezone) {
+        const now = new Date();
+        const time = now.toLocaleTimeString('en-US', { ...optionsTime, timeZone: timezone });
+        const date = now.toLocaleDateString('en-US', { ...optionsDate, timeZone: timezone });
+        document.getElementById(id).innerText = time;
+        document.getElementById(dateId).innerText = date;
+    }
+
+    setTime('nepal', 'nepal-date', 'Asia/Kathmandu');
+    setTime('india', 'india-date', 'Asia/Kolkata');
+    setTime('fiji', 'fiji-date', 'Pacific/Fiji');
+    setTime('png', 'png-date', 'Pacific/Port_Moresby');
+    setTime('santa', 'santa-date', 'America/Los_Angeles');
+    setTime('sydney', 'sydney-date', 'Australia/Sydney');
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+
+</body>
+</html>
