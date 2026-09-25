@@ -313,7 +313,7 @@ https://www.tooplate.com/view/2120-ben-resume
     padding: 0.5rem 2rem 1.2rem 2rem;
     font-size: clamp(1.5rem, 4.4vw, 3rem);
     line-height: 1.15;
-    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .hero-subtitle {
